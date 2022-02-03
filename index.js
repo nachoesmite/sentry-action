@@ -10,7 +10,9 @@ const run = async () => {
        comments: fb.comments,
        dateCreated: fb.dateCreated
     }));
-    return filteredFeedback;
+    console.log(result)
+    //const nameToGreet = core.getInput('who-to-greet');
+    core.setOutput("payload", filteredFeedback);
 }
 var options = {
   url: 'https://sentry.io/api/0/projects/\zuplo/portal/user-feedback/',
@@ -21,10 +23,8 @@ var options = {
 
 try {
   // `who-to-greet` input defined in action metadata file
-  const result = run();
-  console.log(result)
-  //const nameToGreet = core.getInput('who-to-greet');
-  core.setOutput("payload", result);
+  run();
+
 } catch (error) {
   core.setFailed(error.message);
 }
