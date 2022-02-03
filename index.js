@@ -10,7 +10,6 @@ const run = async () => {
        comments: fb.comments,
        dateCreated: fb.dateCreated
     }));
-    //const nameToGreet = core.getInput('who-to-greet');
     core.setOutput("payload", filteredFeedback);
 }
 var options = {

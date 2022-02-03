@@ -1,10 +1,10 @@
 name: 'Sentry User Feedback'
 description: 'An action to monitor the Sentry User Feedback'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  time-ms-period:  # id of input
+    description: 'Time Period to check in miliseconds'
     required: true
-    default: 'World'
+    default: '300000'
 outputs:
   time: # id of output
     description: 'The time we greeted you'
