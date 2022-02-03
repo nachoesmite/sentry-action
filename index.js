@@ -22,6 +22,7 @@ var options = {
 try {
   // `who-to-greet` input defined in action metadata file
   const result = run();
+  console.log(result)
   //const nameToGreet = core.getInput('who-to-greet');
   core.setOutput("payload", result);
 } catch (error) {
