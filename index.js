@@ -10,7 +10,7 @@ const run = async () => {
        comments: fb.comments,
        dateCreated: fb.dateCreated
     }));
-    core.setOutput("payload", filteredFeedback);
+    core.setOutput("payload", { events: filteredFeedback});
 }
 var options = {
   url: 'https://sentry.io/api/0/projects/\zuplo/portal/user-feedback/',
