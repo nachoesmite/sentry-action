@@ -4,6 +4,7 @@ const token = process.env.SENTRY_TOKEN
 const run = async () => {
     const feedbacks = await axios(options);
     let filteredFeedback = feedbacks.data.filter((fb) => Date.parse(fb.dateCreated) > Date.now() - 3600000*2);
+    console.log(feedbacks.data);
     filteredFeedback = filteredFeedback.map((fb) => ({
        event: fb.issue.permalink,
        email: fb.email,
