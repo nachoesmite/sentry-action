@@ -3,15 +3,13 @@ const axios = require('axios');
 const token = process.env.SENTRY_TOKEN
 const run = async () => {
     const feedbacks = await axios(options);
-    let filteredFeedback = feedbacks.data.filter((fb) => Date.parse(fb.dateCreated) > Date.now() - 450000);
-    console.log(feedbacks.data);
+    let filteredFeedback = feedbacks.data.filter((fb) => Date.parse(fb.dateCreated) > Date.now() - core.getInput('time-ms-period'));
     filteredFeedback = filteredFeedback.map((fb) => ({
        event: fb.issue.permalink,
        email: fb.email,
        comments: fb.comments,
        dateCreated: fb.dateCreated
     }));
-    console.log(filteredFeedback)
     //const nameToGreet = core.getInput('who-to-greet');
     core.setOutput("payload", filteredFeedback);
 }
