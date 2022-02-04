@@ -22,7 +22,6 @@ const run = async () => {
 
 
 try {
-  // `who-to-greet` input defined in action metadata file
   run();
 
 } catch (error) {
