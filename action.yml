@@ -6,8 +6,10 @@ inputs:
     required: true
     default: '300000'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  payload: # id of output
+    description: 'All the events'
+  length:
+    description: 'how many events'
 runs:
   using: 'node16'
   main: 'index.js'

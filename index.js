@@ -18,6 +18,8 @@ const run = async () => {
     }));
     console.log({ events: filteredFeedback});
     core.setOutput("payload", { events: filteredFeedback});
+    core.setOutput("length", filteredFeedback.length);
+
 }
 
 
