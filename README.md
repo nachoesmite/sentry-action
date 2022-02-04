@@ -1,22 +1,38 @@
 # sentry-action
 
-
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This github actions provide a way to query sentry API in order to get the last `user feedback` reported by your users. y the last `N` seconds.
 
 ## Inputs
 
-## `who-to-greet`
+```
+inputs:
+  time-ms-period:  # id of input
+    description: 'Time Period to query back in milliseconds'
+    required: true
+    default: '300000'
+```
 
-**Required** The name of the person to greet. Default `"World"`.
+## Env Vars
+
+The sentry api token.
 
 ## Outputs
 
-## `time`
-
-The time we greeted you.
-
+```
+outputs:
+  payload: # id of output
+    description: 'All the events'
+  length:
+    description: 'how many events'
+```
 ## Example usage
 
-uses: actions/hello-world-javascript-action@v1.1
-with:
-  who-to-greet: 'Mona the Octocat'
+```
+- name: Getting info from sentry
+  id: sentry
+  uses: nachoesmite/sentry-action@vX.X
+  with:
+    time-ms-period: 1200000
+  env:
+    SENTRY_TOKEN: ${{ secrets.SENTRY_TOKEN }}
+```
